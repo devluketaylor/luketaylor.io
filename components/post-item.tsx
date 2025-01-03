@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { IoIosTime } from "react-icons/io";
-import { buttonVariants } from "@/components/ui/button";
-import { cn, estimateReadingTime, formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import {
 	Card,
 	CardContent,
@@ -23,7 +22,7 @@ export function PostItem({ slug, title, description, date }: PostItemProps) {
 				<Card>
 					<CardHeader>
 						<div>
-							<h2 className="text-2xl">{title}</h2>
+							<h2 className="text-lg">{title}</h2>
 						</div>
 					</CardHeader>
 					<CardContent>
@@ -43,9 +42,6 @@ export function PostItem({ slug, title, description, date }: PostItemProps) {
 									>
 										{formatDate(date)}
 									</time>
-									<p>
-										{estimateReadingTime(slug)}- 8 min read
-									</p>
 								</dd>
 							</dl>
 						</div>

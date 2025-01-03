@@ -1,8 +1,10 @@
 "use client";
 
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { MdSunny } from "react-icons/md";
+import { IoMdMoon } from "react-icons/io";
 
 export const ThemeToggle = () => {
 	const { systemTheme, theme, setTheme } = useTheme();
@@ -14,17 +16,19 @@ export const ThemeToggle = () => {
 			setDarkMode(true);
 		}
 	}, []);
+
 	const toggleDarkMode = (checked: boolean) => {
 		setDarkMode(checked);
 		setTheme(checked ? "dark" : "light");
 	};
 
 	return (
-		// @ts-ignore
-		<DarkModeSwitch
-			checked={isDarkMode}
-			onChange={toggleDarkMode}
-			size={24}
-		/>
+		<Button variant="ghost" onClick={() => toggleDarkMode(!isDarkMode)}>
+			{isDarkMode ? (
+				<MdSunny style={{ width: 20, height: 20 }} />
+			) : (
+				<IoMdMoon style={{ width: 20, height: 20 }} />
+			)}
+		</Button>
 	);
 };
