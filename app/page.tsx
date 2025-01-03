@@ -1,12 +1,14 @@
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
-import {NavbarPage} from "@/lib/types";
+import {Page} from "@/lib/types";
+import Footer from "@/components/footer";
 
 export default function HomePage() {
   return (
       <main>
-          <Navbar isActive={NavbarPage.Home} />
+          <Navbar currentPage={Page.Home} />
         <Hero />
+          <Footer currentPage={Page.Home} />
       </main>
   )
 }

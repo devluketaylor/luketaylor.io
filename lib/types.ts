@@ -16,7 +16,7 @@ export type EmailData = {
     html: string;
 }
 
-export enum NavbarPage {
+export enum Page {
     Home,
     Contact,
     Blog,

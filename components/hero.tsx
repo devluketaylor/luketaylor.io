@@ -17,6 +17,8 @@ export default function Hero() {
             <p className="text-sm mt-5">If you'd like to get in touch, please <span className="underline underline-offset-2 decoration-input decoration-2"><Link href="/contact">send me an email</Link></span> or reach out on social media.</p>
 
             <Separator className="mt-5"/>
+
+
         </section>
     )
 }

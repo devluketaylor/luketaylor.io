@@ -1,14 +1,14 @@
-import {navbarLinks, socialLinks} from "@/lib/data";
+import {pageLinks, socialLinks} from "@/lib/data";
 import Link from "next/link";
-
-export default function Footer({ currentPage }: { currentPage: string }) {
+import { Page } from "@/lib/types";
+export default function Footer({ currentPage }: { currentPage: Page }) {
     return (
         <footer className="flex justify-between">
             <div>
                 <ul className="flex items-center gap-3">
                 { socialLinks.map((link) => (
-                    <li>
-                        <Link href={link.href}>
+                    <li key={link.name}>
+                        <Link target="_blank" href={link.href}>
                             <link.icon style={{ width: 20, height: 20 }} />
                         </Link>
                     </li>
@@ -22,10 +22,10 @@ export default function Footer({ currentPage }: { currentPage: string }) {
             <div>
                 <div>
                     <ul>
-                    { navbarLinks.map((link) => (
-                        <li>
+                    { pageLinks.map((link) => (
+                        <li key={link.name}>
                             <Link href={link.href}>
-                                <p>{link.name}</p>
+                                <p className={`${currentPage ===  link.rel ? "text-black dark:text-white" : "text-zinc-500 "}`}>{link.name}</p>
                             </Link>
                         </li>
                     ))}
